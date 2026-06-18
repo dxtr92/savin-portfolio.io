@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Портфолио студента</title>
+
+<style>
+
+/* Просмотр сертификатов */
+.modal{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.9);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    max-width:90%;
+    max-height:90%;
+    border-radius:10px;
+    box-shadow:0 0 30px rgba(255,255,255,.2);
+}
+
+.close{
+    position:absolute;
+    top:20px;
+    right:35px;
+    color:white;
+    font-size:50px;
+    cursor:pointer;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+    background:#f5f7fb;
+    color:#333;
+}
+
+/* ШАПКА */
+header{
+    position:relative;
+    min-height:100vh;
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.portfolio-label{
+    position:absolute;
+    top:25px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:15px 40px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(255,255,255,.3);
+    border-radius:50px;
+    color:white;
+    font-size:50px;
+    font-weight:700;
+    letter-spacing:8px;
+}
+
+/* HERO */
+.hero{
+    max-width:1200px;
+    display:flex;
+    align-items:center;
+    gap:70px;
+    flex-wrap:wrap;
+}
+
+.photo-frame{
+    width:340px;
+    padding:10px;
+    background:white;
+    border-radius:25px;
+    box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+.photo-frame img{
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+.hero-text{flex:1;color:white;}
+
+.hero-text h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero-text h3{
+    font-weight:400;
+    margin-bottom:25px;
+}
+
+.hero-text p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    background:white;
+    color:#2563eb;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:700;
+}
+
+/* NAV */
+nav{
+    position:sticky;
+    top:0;
+    background:white;
+    padding:18px;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    z-index:1000;
+}
+
+nav a{
+    text-decoration:none;
+    color:#222;
+    margin:0 15px;
+    font-weight:600;
+}
+
+nav a:hover{color:#2563eb;}
+
+/* CONTAINER */
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:70px 20px;
+}
+
+.section{margin-bottom:80px;}
+
+.title{
+    font-size:36px;
+    color:#1e3a8a;
+    margin-bottom:30px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    line-height:1.8;
+}
+
+/* COMPETENCIES */
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.skill{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.skill h3{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:.3s;
+}
+
+.gallery img:hover{transform:scale(1.03);}
+
+/* CONTACTS */
+.contacts{text-align:center;}
+.contacts p{margin:12px 0;font-size:18px;}
+
+/* FOOTER */
+footer{
+    background:#1e293b;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+@media(max-width:768px){
+.hero{flex-direction:column;text-align:center;}
+.hero-text h1{font-size:40px;}
+.portfolio-label{font-size:28px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="portfolio-label">ПОРТФОЛИО</div>
+
+<div class="hero">
+
+<div class="photo-frame">
+<img src="images/me.jpg" alt="Моё фото">
+</div>
+
+<div class="hero-text">
+<h1>Савин Владислав Иванович</h1>
+
+<h3>19 лет • Информационные системы и программирование</h3>
+
+<p>
+Студент, увлекающийся графическим дизайном, монтажом видео и фотографией. 
+Развиваюсь в сфере IT и мультимедиа, стремлюсь сочетать технические навыки с творческим подходом.
+</p>
+
+<a href="#about" class="btn">Перейти к портфолио</a>
+</div>
+
+</div>
+</header>
+
+<nav>
+<a href="#about">Обо мне</a>
+<a href="#skills">Компетенции</a>
+<a href="#certificates">Сертификаты</a>
+<a href="#contacts">Контакты</a>
+</nav>
+
+<div class="container">
+
+<section id="about" class="section">
+
+<h2 class="title">Визитная карточка</h2>
+
+<div class="card">
+<p><b>ФИО:</b> Савин Владислав Иванович</p>
+<p><b>Возраст:</b> 19 лет</p>
+<p><b>Учебное заведение:</b> Севастопольский торгово-экономический техникум</p>
+<p><b>Специальность:</b> Информационные системы и программирование</p>
+
+<br>
+
+<p>
+Кратко о себе: интересуюсь разработкой программного обеспечения и цифровыми технологиями. 
+Активно развиваюсь в области графического дизайна, видеомонтажа и фотографии, 
+стремлюсь применять творческий подход в IT-проектах.
+</p>
+</div>
+
+</section>
+
+<section id="skills" class="section">
+
+<h2 class="title">Общие и профессиональные компетенции</h2>
+
+<div class="skills">
+
+<div class="skill">
+<h3>Общие компетенции (ОК)</h3>
+<p>
+ОК 01 — понимание социальной значимости профессии.<br>
+ОК 02 — планирование и организация собственной деятельности.<br>
+ОК 04 — поиск и анализ информации.<br>
+ОК 05 — использование ИКТ в работе.<br>
+ОК 06 — работа в команде и взаимодействие с руководством.<br>
+ОК 09 — адаптация к быстро меняющимся технологиям.
+</p>
+</div>
+
+<div class="skill">
+<h3>Профессиональные компетенции (ПК)</h3>
+<p>
+ПК 1.1 — участие в разработке программных модулей.<br>
+ПК 1.2 — интеграция модулей в программное обеспечение.<br>
+ПК 2.3 — администрирование баз данных.<br>
+ПК 4.4 — тестирование и отладка программных решений.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="certificates" class="section">
+
+<h2 class="title">Сертификаты</h2>
+
+<div class="gallery">
+
+<img src="images/certificate1.jpg" onclick="openImage(this.src)">
+<img src="images/certificate2.jpg" onclick="openImage(this.src)">
+<img src="images/certificate3.jpg" onclick="openImage(this.src)">
+<img src="images/certificate4.jpg" onclick="openImage(this.src)">
+<img src="images/certificate5.jpg" onclick="openImage(this.src)">
+<img src="images/certificate6.jpg" onclick="openImage(this.src)">
+<img src="images/certificate7.jpg" onclick="openImage(this.src)">
+<img src="images/certificate8.jpg" onclick="openImage(this.src)">
+<img src="images/certificate9.jpg" onclick="openImage(this.src)">
+<img src="images/certificate10.jpg" onclick="openImage(this.src)">
+<img src="images/certificate11.jpg" onclick="openImage(this.src)">
+
+</div>
+
+</section>
+
+<section id="contacts" class="section">
+
+<h2 class="title">Контакты</h2>
+
+<div class="card contacts">
+<p>📧 s.vladi2007@gmail.com</p>
+<p>📱 +7 (978) 349-82-04</p>
+<p>📍 г. Севастополь</p>
+</div>
+
+</section>
+
+</div>
+
+<footer>
+© 2026 Портфолио студента
+</footer>
+
+<!-- Modal -->
+<div id="imageModal" class="modal" onclick="closeImage()">
+<span class="close">&times;</span>
+<img id="modalImg" class="modal-content">
+</div>
+
+<script>
+function openImage(src){
+    document.getElementById("imageModal").style.display="flex";
+    document.getElementById("modalImg").src=src;
+}
+
+function closeImage(){
+    document.getElementById("imageModal").style.display="none";
+}
+</script>
+
+</body>
+</html>
